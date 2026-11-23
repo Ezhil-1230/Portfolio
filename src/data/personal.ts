@@ -15,7 +15,7 @@ export const PERSONAL_INFO = {
   
   // Configurable URLs
   socials: {
-    github: "https://github.com", // Configurable
+    github: "https://github.com/Ezhil-1230",
     linkedin: "https://linkedin.com", // Configurable
     email: "mailto:ezhilmamnosedev@gmail.com",
     phone: "tel:8667033008"
