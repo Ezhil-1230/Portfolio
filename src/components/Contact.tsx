@@ -73,40 +73,45 @@ export const Contact: React.FC = () => {
     setErrorMessage('');
 
     try {
-      // Send message via public Web3Forms endpoint or resilient fallback
-      const response = await fetch('https://api.web3forms.com/submit', {
+      // Direct inbox delivery to ezhilmamnosedev@gmail.com via FormSubmit AJAX endpoint
+      const response = await fetch(`https://formsubmit.co/ajax/${PERSONAL_INFO.email}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Accept: 'application/json'
+          'Accept': 'application/json'
         },
         body: JSON.stringify({
-          access_key: 'a89c8928-1f58-4712-a746-cf85160ba7b7', // Web3Forms access key
           name: formData.name,
           email: formData.email,
-          subject: formData.subject || 'Portfolio Inquiry from Recruiter/Visitor',
+          _subject: formData.subject ? `[Portfolio] ${formData.subject}` : `New Portfolio Inquiry from ${formData.name}`,
           message: formData.message,
-          to: PERSONAL_INFO.email
+          _replyto: formData.email,
+          _captcha: 'false',
+          _template: 'table'
         })
       });
 
       const result = await response.json();
-      if (response.ok && result.success) {
+      if (response.ok && (result.success === 'true' || result.success === true)) {
         setStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
         confetti({
-          particleCount: 60,
+          particleCount: 65,
           spread: 80,
           origin: { y: 0.6 },
           colors: ['#00F0FF', '#10B981', '#6366F1']
         });
+      } else if (result.message && result.message.includes('Activation')) {
+        // One-time activation notice
+        setStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        // Fallback: If external API fails, direct mailto fallback
+        // Fallback: If external endpoint is blocked, compose in mail client
         window.location.href = `mailto:${PERSONAL_INFO.email}?subject=${encodeURIComponent(formData.subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`Hi Ezhil,\n\nFrom: ${formData.name} (${formData.email})\n\n${formData.message}`)}`;
         setStatus('success');
       }
     } catch (err) {
-      // In case of network disconnection or blocked API, trigger direct mailto
+      // Direct mailto fallback on offline or network block
       window.location.href = `mailto:${PERSONAL_INFO.email}?subject=${encodeURIComponent(formData.subject || 'Portfolio Inquiry')}&body=${encodeURIComponent(`Hi Ezhil,\n\nFrom: ${formData.name} (${formData.email})\n\n${formData.message}`)}`;
       setStatus('success');
     }
