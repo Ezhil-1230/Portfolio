@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   ArrowRight, 
@@ -24,41 +24,6 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenSocialConfig }) => {
-  const [titleIndex, setTitleIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  const dynamicPhrases = [
-    'Full Stack Web Applications',
-    'Scalable Backend Systems',
-    'Responsive React.js Interfaces',
-    'REST APIs & Database Architectures',
-    'Intelligent Software Solutions'
-  ];
-
-  // Smooth Typewriter Effect
-  useEffect(() => {
-    const current = dynamicPhrases[titleIndex];
-    const typingSpeed = isDeleting ? 35 : 75;
-
-    const timer = setTimeout(() => {
-      if (!isDeleting) {
-        setDisplayText(current.slice(0, displayText.length + 1));
-        if (displayText.length + 1 === current.length) {
-          setTimeout(() => setIsDeleting(true), 2000);
-        }
-      } else {
-        setDisplayText(current.slice(0, displayText.length - 1));
-        if (displayText.length === 0) {
-          setIsDeleting(false);
-          setTitleIndex((prev) => (prev + 1) % dynamicPhrases.length);
-        }
-      }
-    }, typingSpeed);
-
-    return () => clearTimeout(timer);
-  }, [displayText, isDeleting, titleIndex, dynamicPhrases]);
-
   const handleResumeDownload = () => {
     confetti({
       particleCount: 50,
@@ -101,19 +66,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenSocialConfig }) => {
               EZHIL MAMNOSE <span className="text-cyan-400">P</span>
             </h1>
 
-            {/* Professional Role & Dynamic Sub-line */}
-            <div className="space-y-1 pt-1">
+            {/* Professional Role */}
+            <div className="pt-1">
               <p className="text-lg sm:text-xl font-semibold text-zinc-200 tracking-tight font-sans">
                 Full Stack Developer <span className="text-zinc-500">|</span> Software Developer
               </p>
-
-              <div className="h-8 flex items-center justify-center lg:justify-start gap-1.5 text-sm sm:text-base font-mono">
-                <span className="text-zinc-400">Engineering</span>
-                <span className="text-cyan-400 font-bold underline decoration-cyan-500/40 decoration-2 underline-offset-4">
-                  {displayText}
-                </span>
-                <span className="w-0.5 h-4 bg-cyan-400 animate-pulse inline-block" />
-              </div>
             </div>
           </div>
 
