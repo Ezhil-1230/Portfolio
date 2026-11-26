@@ -21,6 +21,7 @@ export const PROJECTS: Project[] = [
       "Implementing safe state reconciliation between client cart state and dynamic server-side inventory levels",
       "Structuring secure JWT bearer authorization headers and refresh token rotation across multiple privilege tiers"
     ],
+    githubUrl: "https://github.com/Ezhil-1230/EZHIL-MAMNOSE-P-RBLA",
     hasLiveDemo: false,
     status: "Completed",
     bannerGradient: "from-cyan-900/40 via-blue-900/30 to-indigo-950/40",
@@ -47,6 +48,7 @@ export const PROJECTS: Project[] = [
       "Preventing double-booking collisions during peak holiday and weekend time slots",
       "Creating intuitive responsive forms for non-technical salon operators"
     ],
+    githubUrl: "https://github.com/Ezhil-1230/Beatuty-Parlour-Management-System",
     hasLiveDemo: false,
     status: "Completed",
     bannerGradient: "from-purple-900/40 via-pink-900/30 to-indigo-950/40",
@@ -73,6 +75,7 @@ export const PROJECTS: Project[] = [
       "Enforcing strict date validation to prevent overlapping rebate claims across consecutive weekends",
       "Maintaining database concurrency when multiple administrative staff process end-of-month rebate batches"
     ],
+    githubUrl: "https://github.com/Ezhil-1230/Hall-Mess-Rebate-System",
     hasLiveDemo: false,
     status: "Completed",
     bannerGradient: "from-emerald-900/40 via-teal-900/30 to-slate-950/40",
@@ -99,7 +102,9 @@ export const PROJECTS: Project[] = [
       "Ensuring students can draft leave requests offline and synchronize instantly upon regaining network connectivity",
       "Structuring strict security rules in Firebase to protect student contact and travel records"
     ],
-    hasLiveDemo: false,
+    githubUrl: "https://github.com/Ezhil-1230/Hall-Leave-Application-System",
+    liveUrl: "https://github.com/Ezhil-1230/Hall-Leave-Application-System/raw/main/release/Hall-Leave-Application-System.apk",
+    hasLiveDemo: true,
     status: "Completed",
     bannerGradient: "from-blue-900/40 via-cyan-900/30 to-indigo-950/40",
     accentColor: "blue",
@@ -125,7 +130,9 @@ export const PROJECTS: Project[] = [
       "Handling Android OS battery optimization and Doze mode restrictions to ensure notifications fire on time",
       "Designing responsive tablet and smartphone layouts using ConstraintLayout"
     ],
-    hasLiveDemo: false,
+    githubUrl: "https://github.com/Ezhil-1230/Meeting-Schedule-Alert-App",
+    liveUrl: "https://github.com/Ezhil-1230/Meeting-Schedule-Alert-App/raw/main/release/Meeting-Schedule-Alert-App.apk",
+    hasLiveDemo: true,
     status: "Completed",
     bannerGradient: "from-amber-900/40 via-orange-900/30 to-slate-950/40",
     accentColor: "amber",
@@ -151,6 +158,7 @@ export const PROJECTS: Project[] = [
       "Tuning confidence thresholds to eliminate false positives under dim background lighting",
       "Optimizing video frame resizing and batch normalization to maintain real-time performance on standard CPUs"
     ],
+    githubUrl: "https://github.com/Ezhil-1230/age-and-gender-detection",
     hasLiveDemo: false,
     status: "Completed",
     bannerGradient: "from-rose-900/40 via-purple-900/30 to-slate-950/40",
